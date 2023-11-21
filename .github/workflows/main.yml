@@ -33,13 +33,18 @@ jobs:
             echo "Error: Compressed file not found - $compressedFile"
           fi
         done
-    - name: Commit and Push Changes
-      run: |
-        git config --global user.name 'Your Name'
-        git config --global user.email 'your.email@example.com'
-        git add after/*
-        git commit -m "Compress images to AVIF"
-        git push
+
+    - name: Deploy Compressed Images to 'after' Branch
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: after  # 目标分支
+        folder: after  # 需要部署的文件夹
+        commit-message: "Deploy compressed images"
+        clean: true
+        single-commit: true
+        force: true
+        ssh-key: ${{ secrets.MY_SSH_PRIVATE_KEY }}  # Use the new token
+
 
 
 
