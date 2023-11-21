@@ -39,7 +39,7 @@ jobs:
       with:
         branch: after  # 目标分支
         folder: after  # 需要部署的文件夹
-        commit-message: "Deploy compressed images"
+        commit-message: "Deploy compressed images2"
         clean: true
         single-commit: true
         force: true
