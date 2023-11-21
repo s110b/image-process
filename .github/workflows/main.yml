@@ -36,14 +36,14 @@ jobs:
     - name: Install Squoosh CLI
       run: npm install @squoosh/cli -g
 
-    - name: Compress Images to AVIF and Log Size
+    - name: Compress Images to WebP and Log Size
       run: |
         mkdir -p after
         for file in $(find . -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \)); do
           originalSize=$(du -m "$file" | cut -f1)
-          squoosh-cli --avif '{"cqLevel":33}' "$file"
+          squoosh-cli --webp '{}' "$file"
         done
-        for compressedFile in $(find . -type f -iname \*.avif); do
+        for compressedFile in $(find . -type f -iname \*.webp); do
           if [ -f "$compressedFile" ]; then
             mv "$compressedFile" "after/"
             compressedSize=$(du -m "after/$(basename "$compressedFile")" | cut -f1)
@@ -52,6 +52,7 @@ jobs:
             echo "Error: Compressed file not found - $compressedFile"
           fi
         done
+
 
     - name: Deploy Compressed Images to 'after' Branch
       uses: JamesIves/github-pages-deploy-action@v4
