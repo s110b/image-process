@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   optimize-images:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -19,17 +19,16 @@ jobs:
 
     - name: Compress Images to AVIF and Log Size
       run: |
-        $files = Get-ChildItem -Path . -Recurse -Include *.jpg, *.jpeg, *.png
-        foreach ($file in $files) {
-          $originalSize = (Get-Item $file).length / 1MB
-          squoosh-cli --avif '{"cqLevel":33}' --output $(Join-Path $(Split-Path $file) ($file.BaseName + '.avif')) $file
-          $compressedFile = (Join-Path $(Split-Path $file) ($file.BaseName + '.avif'))
-          if (Test-Path $compressedFile) {
-            $compressedSize = (Get-Item $compressedFile).length / 1MB
-            Write-Output "Original size of $($file.Name): $originalSize MB, Compressed size: $compressedSize MB"
-          }
-          else {
-            Write-Error "Compressed file not found: $compressedFile"
-          }
-        }
+        mkdir -p after
+        for file in $(find . -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \)); do
+          originalSize=$(du -m "$file" | cut -f1)
+          squoosh-cli --avif '{"cqLevel":33}' --output "after/$(basename "$file" .${file##*.}).avif" "$file"
+          compressedFile="after/$(basename "$file" .${file##*.}).avif"
+          if [ -f "$compressedFile" ]; then
+            compressedSize=$(du -m "$compressedFile" | cut -f1)
+            echo "Original size of $(basename "$file"): ${originalSize}MB, Compressed size: ${compressedSize}MB"
+          else
+            echo "Error: Compressed file not found - $compressedFile"
+          fi
+        done
 
