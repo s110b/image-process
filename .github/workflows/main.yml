@@ -22,8 +22,14 @@ jobs:
         $files = Get-ChildItem -Path . -Recurse -Include *.jpg, *.jpeg, *.png
         foreach ($file in $files) {
           $originalSize = (Get-Item $file).length / 1MB
-          squoosh-cli --avif '{"cqLevel":33}' --output-dir $(Split-Path $file) --output-format avif $file
+          squoosh-cli --avif '{"cqLevel":33}' --output $(Join-Path $(Split-Path $file) ($file.BaseName + '.avif')) $file
           $compressedFile = (Join-Path $(Split-Path $file) ($file.BaseName + '.avif'))
-          $compressedSize = (Get-Item $compressedFile).length / 1MB
-          Write-Output "Original size of $($file.Name): $originalSize MB, Compressed size: $compressedSize MB"
+          if (Test-Path $compressedFile) {
+            $compressedSize = (Get-Item $compressedFile).length / 1MB
+            Write-Output "Original size of $($file.Name): $originalSize MB, Compressed size: $compressedSize MB"
+          }
+          else {
+            Write-Error "Compressed file not found: $compressedFile"
+          }
         }
+
