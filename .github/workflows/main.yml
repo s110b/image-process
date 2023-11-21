@@ -23,10 +23,17 @@ jobs:
         for file in $(find . -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png \)); do
           originalSize=$(du -m "$file" | cut -f1)
           squoosh-cli --avif '{"cqLevel":33}' "$file"
-          compressedFile="${file%.*}.avif"
-          mv "$compressedFile" "after/"
-          compressedSize=$(du -m "after/$(basename "$compressedFile")" | cut -f1)
-          echo "Original size of $(basename "$file"): ${originalSize}MB, Compressed size: ${compressedSize}MB"
+          basePath=$(dirname "$file")
+          baseName=$(basename "$file")
+          compressedFile="${basePath}/${baseName%.*}.avif"
+          if [ -f "$compressedFile" ]; then
+            mv "$compressedFile" "after/"
+            compressedSize=$(du -m "after/$(basename "$compressedFile")" | cut -f1)
+            echo "Original size of $baseName: ${originalSize}MB, Compressed size: ${compressedSize}MB"
+          else
+            echo "Error: Compressed file not found - $compressedFile"
+          fi
         done
+
 
 
