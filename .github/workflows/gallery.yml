@@ -102,7 +102,6 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-            repository-name: "s110b/ali"
             branch: ali
             folder: app/_site
             clean: true
