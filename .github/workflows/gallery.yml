@@ -103,7 +103,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
             repository-name: "s110b/qq"
-            branch: gh_pages
+            branch: main
             folder: app/_site
             clean: true
             single-commit: true
