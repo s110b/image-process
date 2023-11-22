@@ -51,10 +51,10 @@ jobs:
           mkdir -p app/photos/original
    
 
-          find app2 -type f -name '*.webp' -exec cp {} app1/photos/original/ \;
+          find app2 -type f -name '*.webp' -exec cp {} app/photos/original/ \;
 
           echo "Files copied from app2/after to app/photos/original."
-              # 打印 app1/photos/original 目录的内容
+              # 打印 app/photos/original 目录的内容
           echo "Listing contents of app/photos/original:"
           ls -alh app/photos/original/
           tree app || ls -alRh app
