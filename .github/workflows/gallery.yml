@@ -31,6 +31,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout3
+        uses: actions/checkout@v4
+        with:
+          repository: s110b/qq
+          path: app3
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -41,11 +46,7 @@ jobs:
         with:
           path: app2
           ref: 'after'  # 指定分支名
-      - name: Checkout3
-        uses: actions/checkout@v4
-        with:
-          repository: s110b/qq
-          path: app3
+
           
       - name: Clear and Copy Files
         run: |
