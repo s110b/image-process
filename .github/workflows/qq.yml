@@ -16,6 +16,11 @@ jobs:
         with:
           ref: gh-pages
           path: app
+      - name: Install tree and Print Directory Structure After Checkout
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tree
+          tree app
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
@@ -26,3 +31,5 @@ jobs:
           single-commit: true
           force: true
           ssh-key: ${{ secrets.MY_SSH_PRIVATE_KEY }}  # Use the new token
+      - name: Print Directory Structure After Deploy
+        run: tree app
