@@ -3,8 +3,8 @@
     <generator uri="https://github.com/waschinski/photo-stream">Photo Stream</generator>
     <link href="https://maxvoltar.photo/feed.xml" rel="self" type="application/atom+xml" />
     <link href="https://maxvoltar.photo" rel="alternate" type="text/html"/>
-    <updated>2023-11-22T08:38:44+00:00</updated>
-    <id>2023-11-22T08:38:44+00:00</id>
+    <updated>2023-11-22T08:42:16+00:00</updated>
+    <id>2023-11-22T08:42:16+00:00</id>
     <title type="html"><![CDATA[maxvoltar.photo]]></title>
     <subtitle><![CDATA[@maxvoltar's minimalistic, self-hosted photo stream.]]></subtitle>
     <author>
@@ -13,12 +13,12 @@
       <uri>https://maxvoltar.com</uri>
     </author>
     <entry>
-      <title type="html">20200609246-039</title>
-      <link href="https://maxvoltar.photo/20200609246-039/" rel="alternate" type="text/html" title="20200609246-039" />
+      <title type="html">20200609937-039</title>
+      <link href="https://maxvoltar.photo/20200609937-039/" rel="alternate" type="text/html" title="20200609937-039" />
       <published></published>
       <updated></updated>
-      <id>https://maxvoltar.photo/20200609246-039/</id>
-      <content type="html"><![CDATA[<figure><a href="https://maxvoltar.photo/20200609246-039/"><img src="https://maxvoltar.photo/qq/photos/large/20200609246-039-686656.webp" alt="20200609246-039" /></a></figure>
+      <id>https://maxvoltar.photo/20200609937-039/</id>
+      <content type="html"><![CDATA[<figure><a href="https://maxvoltar.photo/20200609937-039/"><img src="https://maxvoltar.photo/qq/photos/large/20200609937-039-686656.webp" alt="20200609937-039" /></a></figure>
       ]]>
     </content>
     <author>
@@ -26,8 +26,8 @@
       <email>tim@maxvoltar.be</email>
       <uri>https://maxvoltar.com</uri>
     </author>
-    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxvoltar.photo/qq/photos/large/20200609246-039-686656.webp" />
-      <media:content medium="image" url="https://maxvoltar.photo/qq/photos/large/20200609246-039-686656.webp" xmlns:media="http://search.yahoo.com/mrss/" />
+    <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://maxvoltar.photo/qq/photos/large/20200609937-039-686656.webp" />
+      <media:content medium="image" url="https://maxvoltar.photo/qq/photos/large/20200609937-039-686656.webp" xmlns:media="http://search.yahoo.com/mrss/" />
       </entry>
       <entry>
         <title type="html">0007-1456046255-0</title>
