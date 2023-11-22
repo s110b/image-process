@@ -107,7 +107,7 @@ jobs:
       - name: Print _site Directory Structure
         run: |
           sudo apt-get install -y tree
-          tree app/_site
+          tree app3
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
