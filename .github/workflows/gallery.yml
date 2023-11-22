@@ -54,6 +54,13 @@ jobs:
           find app2 -type f -name '*.webp' -exec cp {} app1/photos/original/ \;
 
           echo "Files copied from app2/after to app/photos/original."
+              # 打印 app1/photos/original 目录的内容
+          echo "Listing contents of app/photos/original:"
+          ls -alh app/photos/original/
+
+          # 打印 app2 目录的结构
+          echo "Listing directory structure of app2:"
+          tree app2 || ls -alRh app2
 
         
       - name: Setup Ruby
