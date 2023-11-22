@@ -15,12 +15,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: gh-pages
+          path: app
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           repository-name: "s110b/qq"
           branch: qq
-          folder: ./
+          folder: ./app
           clean: true
           single-commit: true
           force: true
