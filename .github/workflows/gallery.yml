@@ -103,7 +103,7 @@ jobs:
           path: app/_site  # 指向正确的 _site 目录
       - name: Move _site to app3
         run: |
-         mv app/_site /
+         mv app/_site app3/
       - name: Print _site Directory Structure
         run: |
           sudo apt-get install -y tree
@@ -113,7 +113,7 @@ jobs:
         with:
             repository-name: "s110b/qq"
             branch: qq
-            folder: _site
+            folder: app3/_site
             clean: true
             single-commit: true
             force: true
