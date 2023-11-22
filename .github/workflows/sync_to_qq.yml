@@ -10,21 +10,11 @@ jobs:
   notion2markdown:
     runs-on: ubuntu-latest
     permissions:
-
       contents: write
-    name: Convert Notion to Markdown
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-		with:
-		  ref: 'gh-pages'      
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-            repository-name: "s110b/qq"
-            branch: notion1
-            folder: public
-            clean: true
-            single-commit: true
-            force: true
-            ssh-key: ${{ secrets.MY_SSH_PRIVATE_KEY }}  # Use the new token
+	with:
+          ref: 'gh-pages'
+
