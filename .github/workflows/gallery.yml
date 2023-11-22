@@ -44,16 +44,15 @@ jobs:
           
       - name: Clear and Copy Files
         run: |
-       # 清空 app1/photos/original 目录
           rm -rf app1/photos/original/*
           echo "Cleared app1/photos/original directory."
 
-       # 确保 app1/photos/original 目录存在
+
           mkdir -p app1/photos/original
    
-         # 将文件从 app2/after 复制到 app1/photos/original
-         cp -r app2/after/* app1/photos/original/
-         echo "Files copied from app2/after to app1/photos/original."
+
+          cp -r app2/after/* app1/photos/original/
+          echo "Files copied from app2/after to app1/photos/original."
 
         
       - name: Setup Ruby
