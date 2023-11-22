@@ -13,8 +13,9 @@ jobs:
       contents: write 
     name: Convert Notion to Markdown
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-	with:
-          ref: 'gh-pages'
+      - name: Checkout tools repo
+        uses: actions/checkout@v4
+        with:
+	  ref: gh-pages
+	  
 
