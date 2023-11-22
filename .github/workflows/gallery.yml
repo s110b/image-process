@@ -41,6 +41,11 @@ jobs:
         with:
           path: app2
           ref: 'after'  # 指定分支名
+      - name: Checkout3
+        uses: actions/checkout@v4
+        with:
+          repository: s110b/qq
+          path: app3
           
       - name: Clear and Copy Files
         run: |
@@ -102,9 +107,11 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-            branch: ali
+            repository-name: "s110b/qq"
+            branch: qq
             folder: app/_site
             clean: true
             single-commit: true
             force: true
             ssh-key: ${{ secrets.MY_SSH_PRIVATE_KEY }}  # Use the new token
+            working-directory: app3
