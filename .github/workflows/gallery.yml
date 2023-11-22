@@ -103,11 +103,11 @@ jobs:
           path: app/_site  # 指向正确的 _site 目录
       - name: Move _site to app3
         run: |
-         mv app/_site app3/
+         mv app/_site /
       - name: Print _site Directory Structure
         run: |
           sudo apt-get install -y tree
-          tree app3
+          tree ./
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
