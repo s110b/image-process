@@ -57,6 +57,8 @@ jobs:
               # 打印 app1/photos/original 目录的内容
           echo "Listing contents of app/photos/original:"
           ls -alh app/photos/original/
+          tree app || ls -alRh app
+
 
           # 打印 app2 目录的结构
           echo "Listing directory structure of app2:"
