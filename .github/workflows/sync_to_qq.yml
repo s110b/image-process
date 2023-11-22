@@ -7,16 +7,13 @@ on:
     - cron: '*/10 * * * *'
 
 jobs:
-  notion2markdown:
+  # Build job
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write 
-    name: Convert Notion to Markdown
     steps:
-      - name: Checkout tools repo
+      - name: Checkout
         uses: actions/checkout@v4
-	with:
-          ref: gh-pages
+
 
 	  
 
