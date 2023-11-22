@@ -36,6 +36,25 @@ jobs:
         with:
           repository: s110b/360
           path: app
+      - name: Checkout Second Repository
+        uses: actions/checkout@v4
+        with:
+          ref: 'after'  # 指定分支名
+          
+      - name: Clear photos/original Directory
+        run: |
+          # 查找并删除 photos/original 目录下的所有文件
+          find photos/original -type f -exec rm {} \;
+          echo "Cleared photos/original directory."
+
+          # 查找并移动 after 目录下的所有文件
+          if find after -mindepth 1 -type f -exec echo {} \; | grep -q .; then
+            echo "Moving files from after to photos/original..."
+            mv after/* photos/original/
+            echo "Files moved."
+          else
+            echo "No files found in after directory."
+          fi
         
       - name: Setup Ruby
         uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
