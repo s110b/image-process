@@ -108,13 +108,8 @@ jobs:
         run: |
           sudo apt-get install -y tree
           tree ./
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-            repository-name: "s110b/qq"
-            branch: qq
-            folder: app3/_site
-            clean: true
-            single-commit: true
-            force: true
-            ssh-key: ${{ secrets.MY_SSH_PRIVATE_KEY }}  # Use the new token
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: app3/_site
