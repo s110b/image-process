@@ -115,4 +115,3 @@ jobs:
             single-commit: true
             force: true
             ssh-key: ${{ secrets.MY_SSH_PRIVATE_KEY }}  # Use the new token
-            working-directory: app3
