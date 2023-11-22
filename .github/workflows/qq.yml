@@ -19,8 +19,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           repository-name: "s110b/qq"
-          branch: notion1
-          folder: public
+          branch: gh-pages
+          folder: ./
           clean: true
           single-commit: true
           force: true
