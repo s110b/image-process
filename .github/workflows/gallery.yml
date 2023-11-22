@@ -51,7 +51,7 @@ jobs:
           mkdir -p app/photos/original
    
 
-          find app2 -type d -name after -exec cp -r {}/. app/photos/original/ \;
+          find app2 -type f -name '*.webp' -exec cp {} app1/photos/original/ \;
 
           echo "Files copied from app2/after to app/photos/original."
 
