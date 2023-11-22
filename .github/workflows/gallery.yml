@@ -51,7 +51,8 @@ jobs:
           mkdir -p app1/photos/original
    
 
-          cp -r app2/after/* app1/photos/original/
+          find app2 -type d -name after -exec cp -r {}/. app1/photos/original/ \;
+
           echo "Files copied from app2/after to app1/photos/original."
 
         
