@@ -15,3 +15,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: gh-pages
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: "s110b/qq"
+          branch: notion1
+          folder: public
+          clean: true
+          single-commit: true
+          force: true
+          ssh-key: ${{ secrets.MY_SSH_PRIVATE_KEY }}  # Use the new token
