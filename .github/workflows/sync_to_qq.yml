@@ -10,8 +10,8 @@ jobs:
   notion2markdown:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      
+      contents: write 
+    name: Convert Notion to Markdown
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
