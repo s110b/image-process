@@ -99,3 +99,13 @@ jobs:
         run: |
           sudo apt-get install -y tree
           tree app/_site
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+            repository-name: "s110b/qq"
+            branch: gh_pages
+            folder: app/_site
+            clean: true
+            single-commit: true
+            force: true
+            ssh-key: ${{ secrets.MY_SSH_PRIVATE_KEY }}  # Use the new token
